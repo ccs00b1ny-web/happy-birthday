@@ -38,14 +38,28 @@ button {
 }
 
 .heart {
-  font-size: 55px;
+  font-size: 60px;
   cursor: pointer;
   animation: heartbeat 1.3s infinite;
+}
+
+.falling-heart {
+  position: fixed;
+  top: -20px;
+  font-size: 24px;
+  animation: fall 3s linear forwards;
 }
 
 @keyframes heartbeat {
   0%,100% { transform: scale(1); }
   50% { transform: scale(1.3); }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
 @keyframes fadeIn {
@@ -57,14 +71,13 @@ button {
 
 <body>
 
-<!-- HALAMAN AWAL -->
 <div class="card">
   <h1>Happy Birthday 🎂</h1>
-  <h2> Amel 🌻</h2>
+  <h2> Sunnie 🌻</h2>
 
   <p>
     Today is a special day because the world was blessed with you.
-    I hope you feel loved, warm, and appreciated today 🤍
+    I hope you always feel loved and appreciated 🤍
   </p>
 
   <h3>Do you want to continue? 💌</h3>
@@ -72,23 +85,10 @@ button {
   <button onclick="noAnswer()">No</button>
 </div>
 
-<!-- HALAMAN HATI -->
 <div id="lovePage" class="card" style="display:none;">
   <h3>Tap the heart until it's full 💗</h3>
   <div class="heart" onclick="addLove()">💗</div>
   <p id="progress">0%</p>
-</div>
-
-<!-- HALAMAN AKHIR -->
-<div id="final" class="card" style="display:none;">
-  <h1> You made it YAYY! </h1>
-  <p>
-    This is my real message for you.
-    Thank you for existing, thank you for being you.
-    I’m really grateful for you 🤍
-
-    I hope you are always happy and all your wishes come true. I love you.
-  </p>
 </div>
 
 <script>
@@ -101,6 +101,21 @@ function noAnswer() {
   alert("Please say yes 🥺💗");
 }
 
+function heartsRain() {
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.className = "falling-heart";
+    heart.innerText = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+}
+
 let love = 0;
 function addLove() {
   love += 10;
@@ -108,11 +123,14 @@ function addLove() {
   document.getElementById("progress").innerText = love + "%";
 
   if (love === 100) {
-    document.getElementById("final").style.display = "block";
-    window.scrollTo(0, document.body.scrollHeight);
+    heartsRain();
+    setTimeout(() => {
+      window.location.href = "next.html";
+    }, 3000);
   }
 }
 </script>
 
 </body>
-</html>
+  </html>
+  
