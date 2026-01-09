@@ -64,21 +64,46 @@
         opacity: 0;
       }
     }
+
+    /* TOMBOL MUSIK */
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff7aa2;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- AUDIO -->
+  <audio id="bgMusic" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- TOMBOL PLAY / PAUSE -->
+  <button id="musicBtn" onclick="toggleMusic()">▶️</button>
+
   <!-- HALAMAN PERTAMA -->
   <div class="card" id="first">
-    <h2> Happy Birthday, Sunnie 🎉</h2>
+    <h2>Happy Birthday, Sunnie 🎉</h2>
     <p>
       This little page is made just for you 💕<br>
       Will you stay until the end? Please
     </p>
 
-    <button onclick="yesAnswer()">Yes (˵ •̀ ᴗ - ˵ ) </button>
-    <button onclick="noAnswer()">No (｡Ó﹏Ò｡) </button>
+    <button onclick="yesAnswer()">Yes (˵ •̀ ᴗ - ˵ )</button>
+    <button onclick="noAnswer()">No (｡Ó﹏Ò｡)</button>
   </div>
 
   <!-- HALAMAN HATI -->
@@ -89,7 +114,36 @@
   </div>
 
   <script>
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    /* LANJUT DARI DETIK TERAKHIR */
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+      music.currentTime = parseFloat(savedTime);
+    }
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        btn.innerText = "⏸️";
+      } else {
+        music.pause();
+        btn.innerText = "▶️";
+      }
+    }
+
+    /* SIMPAN POSISI LAGU TERUS */
+    setInterval(() => {
+      if (!music.paused) {
+        localStorage.setItem("musicTime", music.currentTime);
+      }
+    }, 500);
+
     function yesAnswer() {
+      music.play();          // WAJIB untuk HP
+      btn.innerText = "⏸️";
+
       document.getElementById("first").style.display = "none";
       document.getElementById("lovePage").style.display = "block";
     }
@@ -122,9 +176,7 @@
         heart.style.animationDuration = 2 + Math.random() * 3 + "s";
         document.body.appendChild(heart);
 
-        setTimeout(() => {
-          heart.remove();
-        }, 5000);
+        setTimeout(() => heart.remove(), 5000);
       }
     }
   </script>
