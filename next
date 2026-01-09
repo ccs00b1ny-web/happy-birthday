@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just For You 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe0ec, #fff);
+  text-align: center;
+  color: #444;
+}
+
+.card {
+  background: white;
+  margin: 60px auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>💖 Surprise 💖</h1>
+  <p>
+    Thank you for staying until the end.
+    This page exists just for you.
+  </p>
+
+  <p>
+    Happy Birthday once again.
+    I hope this year brings you happiness, peace,
+    and everything your heart deserves 🤍
+  </p>
+</div>
+
+</body>
+</html>
