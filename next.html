@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surprise 💖</title>
+  <title>Surprise !</title>
 
   <style>
     * {
@@ -19,8 +19,37 @@
       background: linear-gradient(180deg, #ffe4ec, #fff1f5);
       font-family: Arial, sans-serif;
       padding: 20px;
+      position: relative;
     }
 
+    /* 🎀 RIBBONS */
+    .ribbons {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .ribbons span {
+      display: inline-block;
+      font-size: 1.6rem;
+      margin: 0 4px;
+      animation: floatUpDown 3.5s ease-in-out infinite;
+    }
+
+    .ribbons span:nth-child(even) {
+      animation-direction: reverse;
+    }
+
+    @keyframes floatUpDown {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* 💌 CARD */
     .card {
       width: 100%;
       max-width: 500px;
@@ -29,6 +58,7 @@
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      z-index: 1;
     }
 
     h2 {
@@ -50,14 +80,30 @@
       p {
         font-size: 1.05rem;
       }
+
+      .ribbons span {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- 🎀 RIBBONS -->
+  <div class="ribbons">
+    <span>🎀</span>
+    <span>🎀</span>
+    <span>🎀</span>
+    <span>🎀</span>
+    <span>🎀</span>
+    <span>🎀</span>
+    <span>🎀</span>
+  </div>
+
+  <!-- 💌 CARD -->
   <div class="card">
-    <h2>💖 Surprise!! </h2>
+    <h2>💖 Surprise!!</h2>
     <p>
       Thank you for staying until the end.<br><br>
       This page exists just for you.
@@ -65,10 +111,16 @@
       Happy Birthday once again 🎂<br>
       I hope this year brings you happiness,
       peace, and everything your heart deserves 🤍
-
-      I am so happy to have met you, from the beginning until now. 
-      today, this hour, this second, when you read this i am still happy with you
-      I hope we can be happy together in the future, I'm proud of you
+      <br><br>
+      I am so happy to have met you, from the beginning until now.<br>
+      Today, this hour, this second, when you read this I am still happy with you.<br>
+      Because today is your special day, you deserve all the delicious food!
+      Let’s celebrate today with your beautiful smile 🤍
+      <br><br>
+      May this new year bring you happiness that feels gentle,
+      dreams that slowly come true, and strength for every challenge ahead.
+      You deserve all the good things this world has to offer.
+      I’m so proud of the person you are and the person you’re becoming.
     </p>
   </div>
 
