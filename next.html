@@ -6,6 +6,10 @@
   <title>Surprise 💖</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -14,25 +18,38 @@
       align-items: center;
       background: linear-gradient(180deg, #ffe4ec, #fff1f5);
       font-family: Arial, sans-serif;
+      padding: 20px;
     }
 
     .card {
-      width: 90%;
-      max-width: 420px;
+      width: 100%;
+      max-width: 500px;
       background: white;
-      padding: 28px;
-      border-radius: 16px;
+      padding: 32px 24px;
+      border-radius: 20px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
     }
 
     h2 {
-      margin-bottom: 10px;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
     }
 
     p {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* EXTRA KHUSUS HP KECIL */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+      }
     }
   </style>
 </head>
@@ -40,9 +57,9 @@
 <body>
 
   <div class="card">
-    <h2>💖 Surprise 💖</h2>
+    <h2>💖 Surprise!! </h2>
     <p>
-      Thank you for staying until the end.<br>
+      Thank you for staying until the end.<br><br>
       This page exists just for you.
       <br><br>
       Happy Birthday once again 🎂<br>
