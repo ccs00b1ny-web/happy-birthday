@@ -1,70 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday 💖</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #ffd6e8, #fff1f7);
-      text-align: center;
-      color: #444;
-    }
-    .card {
-      background: white;
-      margin: 50px auto;
-      padding: 30px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      animation: fadeIn 2s;
-    }
-    h1 {
-      color: #ff5c8a;
-    }
-    .heart {
-      font-size: 40px;
-      animation: heartbeat 1.5s infinite;
-    }
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    button {
-      background: #ff5c8a;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Happy Birthday 💗</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+  text-align: center;
+  color: #444;
+}
+
+.card {
+  background: white;
+  margin: 40px auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: fadeIn 1.5s;
+}
+
+h1 { color: #ff5c8a; }
+
+button {
+  background: #ff5c8a;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.heart {
+  font-size: 55px;
+  cursor: pointer;
+  animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>Happy Birthday 🎂</h1>
-    <h2>🌻 Sunnie 🌻</h2>
-    <p>
-      Today is a special day because the world was blessed with you.
-      Thank you for being kind, warm, and simply you.
-    </p>
-    <p>
-      I hope this year brings you happiness, peace, and everything your heart deserves.
-    </p>
-    <div class="heart">💗</div>
-    <br>
-    <button onclick="alert('You are loved more than you know 💕')">
-      Click me 💌
-    </button>
-  </div>
+<!-- LAGU -->
+<audio autoplay loop>
+  <source src="https://drive.google.com/uc?export=view&id=1Hbjfb5RB5zBQ8wRkVuUJ6Q8YN_L4U9hz" type="audio/mpeg">
+</audio>
+
+<!-- HALAMAN AWAL -->
+<div class="card">
+  <h1>Happy Birthday 🎂</h1>
+  <h2>🌻 Amel 🌻</h2>
+
+  <p>
+    Today is a special day because the world was blessed with you.
+    I hope you feel loved, warm, and appreciated today 🤍
+  </p>
+
+  <!-- FOTO -->
+  <img src="https://drive.google.com/uc?export=view&id=1AbCDeFGhijkLMNOP
+    "
+       style="width:100%; border-radius:15px; margin-top:15px;">
+
+  <h3>Do you want to continue? 💌</h3>
+  <button onclick="yesAnswer()">Yes</button>
+  <button onclick="noAnswer()">No</button>
+</div>
+
+<!-- HALAMAN HATI -->
+<div id="lovePage" class="card" style="display:none;">
+  <h3>Tap the heart until it's full 💗</h3>
+  <div class="heart" onclick="addLove()">💗</div>
+  <p id="progress">0%</p>
+</div>
+
+<!-- HALAMAN AKHIR -->
+<div id="final" class="card" style="display:none;">
+  <h1>💖 You made it 💖</h1>
+  <p>
+    This is my real message for you.
+    Thank you for existing, thank you for being you.
+    I’m really grateful for you 🤍
+  </p>
+</div>
+
+<script>
+function yesAnswer() {
+  document.getElementById("lovePage").style.display = "block";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function noAnswer() {
+  alert("Please say yes 🥺💗");
+}
+
+let love = 0;
+function addLove() {
+  love += 10;
+  if (love > 100) love = 100;
+  document.getElementById("progress").innerText = love + "%";
+
+  if (love === 100) {
+    document.getElementById("final").style.display = "block";
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+</script>
 
 </body>
 </html>
